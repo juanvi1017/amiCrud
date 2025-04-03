@@ -23,5 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         // Actualizar suscripción
         $model->updateSubscription($_POST['id'], $_POST['name'], $_POST['email'], $_POST['subscription_type']);
         header("Location: ../view/index.php");
+    } elseif ($_POST['action'] === 'delete') {
+        $model->deleteSubscription($_POST['id']); // Llama a la función deleteSubscription con el ID
+        header("Location: ../view/index.php");
     }
 }
